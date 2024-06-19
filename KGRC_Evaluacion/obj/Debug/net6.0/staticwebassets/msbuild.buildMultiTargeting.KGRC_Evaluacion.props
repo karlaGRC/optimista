@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\KGRC_Evaluacion.props" />
+</Project>

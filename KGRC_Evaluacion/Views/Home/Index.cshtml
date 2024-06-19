@@ -1,0 +1,30 @@
+﻿@model KGRC_Evaluacion.Models.ViewModelLogin
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<main role="main"  style="background-color: beige; border-radius: 23px; padding: 50px;">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+    </div>
+    <div class="text-center">
+        <h2>Login</h2>
+    </div>
+   <form asp-action="Login" method="post">
+        <div class="container mt-2">
+
+            <label for="Usuario">Nombre de usuario:</label><br>
+            <input type="text" id="Usuario" name="Usuario" value="@Model.Usuario" class="form-control"><br>
+            <span asp-validation-for="Usuario" class="text-danger"></span>
+        </div>
+        <div class="container mt-2">
+            <label for="Contrasenia">Contraseña:</label><br>
+            <input type="password" id="Contrasenia" name="Contrasenia" value="@Model.Contrasenia" class="form-control"><br>
+            <span asp-validation-for="Contrasenia" class="text-danger"></span>
+        </div>
+        <div class="container mt-2">
+            <input type="submit" name="submitButton" value="Login" class="btn btn-primary" />
+            <input type="submit" name="submitButton" value="Register" class="btn btn-primary" />
+        </div>
+    </form>
+</main>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\KGRC_Evaluacion.props" />
+</Project>

@@ -1,0 +1,127 @@
+﻿@model List<KGRC_Evaluacion.Models.ViewResponseFind>
+
+@{
+    ViewData["Title"] = "Busqueda de Coctel";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+<body>
+    <h1>Buscando mí trago</h1>
+    <div class="container">
+        <div class="row align-items-start text-right">
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+                <div class="input-group">
+                    <form asp-action="Logout">
+                        <input type="submit" value="Cerrar Sesion" class="btn btn-primary" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+            <form asp-action="CoctelFinder" method="Get">
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <input type="text" name="CoctelFind" 
+                                    class="form-control" placeholder="Buscar coctel..."
+                                       aria-label="Buscar coctel" aria-describedby="button-buscar" oninput="validateInput(event)">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <form asp-action="CoctelFavorito" method="Post">
+                            <button type="submit" class="btn btn-danger">VerCoctelFavorito</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+  
+
+  
+    <div class="container mt-7">
+        @using (Html.BeginForm("AddCoctelesFavorito", "BusquedaCoctel", FormMethod.Post))
+        {
+            <button type="submit" class="btn btn-primary">Guardar seleccionados</button>
+
+        @if (Model.Any())
+        {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    @* <th>ID</th> *@
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.strDrink</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.strDrinkThumb))
+                            {
+                                <img src="@item.strDrinkThumb" alt="@item.strDrink" width="200" height="200" />
+                            }
+                        </td>
+                        <td>
+                                    <input type="checkbox" id="chkAgregar_@item.idDrink" name="chkAgregar" value="@item.idDrink" />
+                                    <label for="chkAgregar_@item.idDrink">Agregar a favoritos</label>
+                           
+                        </td>
+                         
+                    </tr>
+                }
+            </tbody>
+        </table>
+             }
+            else
+            {
+                <p>No hay cocteles disponibles realice una busqueda.</p>
+            }
+      }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @* Script para enviar el formulario cuando cambie el estado del checkbox *@
+    <script>
+        document.getElementById('chkAgregar').addEventListener('change', function () {
+
+            this.closest('form').submit();
+        });
+
+            function validateInput(event) {
+                const input = event.target;
+                const regex = /[^a-zA-Z\s]/g; // Allow only alphabetic characters and spaces
+                input.value = input.value.replace(regex, '');
+            }
+    </script>
+</body>
+

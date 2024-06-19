@@ -1,0 +1,75 @@
+﻿@model List<KGRC_Evaluacion.Models.ViewResponseCocteles>
+
+@{
+    ViewData["Title"] = "Cocteles Favoritos";
+}
+
+<h1>CoctelesFavoritos</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    
+</head>
+<body>
+    <form asp-action="Logout">
+        <input type="submit" value="Cerrar Sesion" class="btn btn-primary" />
+    </form>
+    <form asp-action="FinderCoctel" method="Get">
+        <input type="submit" value="Regresar" class="btn btn-primary" />
+    </form>
+    <div class="container mt-5">
+    
+        @if (Model.Any())
+        {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    @* <th>ID</th> *@
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Alcohol</th>
+                    <th>Ingrediente Principal</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        
+                        <td>@item.strDrink</td>
+                        <td>@item.strCategory</td>
+                        <td>@item.strAlcoholic</td>
+                        <td>@item.strIngredient1</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.strDrinkThumb))
+                            {
+                                <img src="@item.strDrinkThumb" alt="@item.strDrink" width="100" height="100" />
+                            }
+                        </td>
+                        <td>
+                            <form asp-action="EliminarCoctel"  method="Get">
+                                <input type="hidden" name="idDrink" value="@item.idDrink" />
+                                <button  type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+            }
+            else
+            {
+            <p>No hay cocteles favoritos disponibles.</p>
+            }
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
