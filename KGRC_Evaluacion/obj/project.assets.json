@@ -11858,11 +11858,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\KGRC_Evaluacion\\KGRC_Evaluacion.csproj",
+      "projectUniqueName": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\optimista\\KGRC_Evaluacion\\KGRC_Evaluacion.csproj",
       "projectName": "KGRC_Evaluacion",
-      "projectPath": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\KGRC_Evaluacion\\KGRC_Evaluacion.csproj",
+      "projectPath": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\optimista\\KGRC_Evaluacion\\KGRC_Evaluacion.csproj",
       "packagesPath": "C:\\Users\\karla\\.nuget\\packages\\",
-      "outputPath": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\KGRC_Evaluacion\\obj\\",
+      "outputPath": "D:\\PROGRAMAS ASP.NET\\KGRC_Evaluacion\\optimista\\KGRC_Evaluacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KGRC_Evaluacion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+936801407df602838a12988f14decd40da986808")]
 [assembly: System.Reflection.AssemblyProductAttribute("KGRC_Evaluacion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KGRC_Evaluacion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

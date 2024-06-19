@@ -160,22 +160,22 @@ namespace KGRC_Evaluacion.Controllers
 
                     int idUsuario = HttpContext.Session.GetInt32("IdUser") ?? -1;
                     int iDrink = int.Parse(c);
-                    var result = await UnitOfWork.Coctel.GetInformationCoctelUser(iDrink, idUsuario);
+                    var result = await UnitOfWork.Coctel.GetInformationCoctelUser(idUsuario, iDrink);
 
-                    if (result.Count>0)
+                    if (result.Count == 0)
                     {
                         await UnitOfWork.Coctel.SaveCoctel(int.Parse(c), idUsuario);
                     }
-                   
+
                 }
                 TempData["SuccessMessage"] = "Los cócteles han sido agregados a favoritos.";
             }
             catch (Exception ex)
             {
-                ConsolaMensaje("Error al AgregarCoctelesFavorito:",ex);
-                
+                ConsolaMensaje("Error al AgregarCoctelesFavorito:", ex);
+
             }
-           
+
             return RedirectToAction("Index", "BusquedaCoctel");
 
 
